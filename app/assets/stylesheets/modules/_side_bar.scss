@@ -1,0 +1,62 @@
+.side-bar {
+  color: white;
+  width: 300px;
+  height: 100px;
+  float: left;
+  .header {
+    background-color: #253141;
+    height: 100px;
+    padding: 0 20px;
+    align-items: center;
+    &__name {
+      display: inline-block;
+      line-height: 100px;
+      font-size: inherit;
+      font-weight: bold;
+    }
+    &__lists {
+      display: inline-block;
+      float: right;
+      .list {
+        display: inline-block;
+        line-height: 100px;
+      }
+      .icon {
+        color: white;
+        font-size: inherit;
+        line-height: 100px;
+      }
+    }
+  }
+
+  .groups {
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0;
+    overflow: scroll;
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 40px;
+      margin-bottom: 40px;
+    
+
+      .line{
+        text-decoration: none;
+      }
+      
+      &__group-name {
+        color:#ffffff;
+        font-size: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      &__latest-message {
+        color: white;
+        font-size: 11px;
+        margin-top: 5px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
