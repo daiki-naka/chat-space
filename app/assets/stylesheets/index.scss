@@ -1,76 +1,68 @@
-$side-header-left-width:0.3rem;
-
-@mixin fa { 
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size:  inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing:antialiased;}
-
 
 * {
   box-sizing: border-box;}
 
 
 
-  .side-bar {
-    box-sizing: border-box;
-    color: white;
-    width: 300px;
-    float:left;
-    .header {
-      background-color: #253141;
-      height: 100px;
+.side-bar {
+  color: white;
+  width: 300px;
+  height: 100px;
+  float: left;
+  .header {
+  background-color: #253141;
+  height: 100px;
+  padding: 0 20px;
+  align-items: center;
+  &__name {
+    display: inline-block;
+    line-height: 100px;
+    font-size: inherit;
+    font-weight: bold;
+  }
+  &__lists {
+    display: inline-block;
+    float: right;
+    .list {
+      display: inline-block;
       line-height: 100px;
-      padding: 0 20px;
-      &__name {
-        display: inline-block;
-        font-size: inherit;
-        font-weight: bold;
-      }
-      &__lists {
-        display: inline-block;
-        float: right;
-        .list {
-          display: inline-block;
-        }
-        .icon {
-          color: white;
-          font-size: inherit;
-        }
+    }
+    .icon {
+      color: white;
+      font-size: inherit;
+      line-height: 100px;
       }
     }
+  }
 
   .groups {
-    background-color: #2f3e51;
-    height: calc(100vh - 100px);
-    padding: 20px 20px 0;
-    overflow: scroll;
-    width:300px;
-    
-    .group {
-      box-sizing: border-box;
-      padding: 20px 0 40px;
-      margin-bottom: 40px;
-      color: white;
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  padding: 20px 20px 0;
+  overflow: scroll;
+  .group {
+    box-sizing: border-box;
+    padding: 20px 0 40px;
+    margin-bottom: 40px;
 
-      .line{
-        text-decoration: none;
-      }
-      
-      &__group-name {
-        color:#ffffff;
-        font-size: 15px;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-      &__latest-message {
-        color: white;
-        font-size: 11px;
-        margin-top: 5px;
-        font-weight: bold;
-        margin-bottom: 40px;
-      }
+
+    .line{
+      text-decoration: none;
+    }
+    
+    &__group-name {
+      color:#ffffff;
+      font-size: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    &__latest-message {
+      color: white;
+      font-size: 11px;
+      margin-top: 5px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      } 
     }
   }
 }
@@ -115,22 +107,30 @@ float: right;
   overflow:scroll;
   .message{
     padding-bottom: 40px;
-    &__upper-info{
+    
+    .upper-message{
       display: flex;
       margin-bottom: 10px;
-      &__talker{
+      &__user-name{
         color: #434a54;
-        font-size:16px;
-        font-weight: bold;}
+        font-size:12px;
+        font-weight: bold;
+      }
       &__date{
         color: #999999;
         font-size: 12px;
-        margin-left: 10px;}
+        margin-left: 10px;
       }
-    &__text {
-      color: #434a54;
-      font-size: 14px;
-      margin-bottom: 10px;}
+    }
+      .lower-message__text {
+        color: #434a54;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      .lower-message__image{
+        height: 250px;
+        width: 200px;
+    }
   }
 }
 .form {
@@ -144,6 +144,7 @@ float: right;
     text-align: left;
     height: 50px;
     width: calc(100% - 150px);
+    padding-left: 10px;
   }
   &__mask {
     background-color: $white;
