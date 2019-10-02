@@ -30,7 +30,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.message').append(html);
-      $('#new_message').val('');
       var target = $('.message').last();
       $('.message').animate({scrollTop:target.offset().top}, 500, 'swing');
       $('.form__submit')[0].reset();
