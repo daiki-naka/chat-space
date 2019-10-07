@@ -26,7 +26,7 @@ li {
 
 .chat-group-form {
   width: 980px;
-  margin: 60px auto;
+  margin: 50px auto;
   padding: 40px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -59,8 +59,13 @@ li {
     background-color: #38aef0;
     border: 0;
   }
+  &__search{
+    float:right;
+    width:70%;
+    margin-top:-50px;
+  }
   &__field {
-    margin-top: 30px;
+    margin-top: 20px;
     &:after {
       content: "";
       clear: both;
@@ -72,31 +77,42 @@ li {
       padding-right: 20px;
       padding-left: 20px;
       box-sizing: border-box;
+      margin-top:20px;
     }
     &--right {
       float: right;
       width: 70%;
+      margin-top:10px;
+      
     }
   }
 }
 
 .chat-group-user {
-  padding: 0 15px;
   line-height: 50px;
   font-size: 14px;
-  border-bottom: 1px solid #ddd;
-  &:after {
+  margin-top:10px;
+  margin-bottom: 10px;
+  width: 700px;
+  float: right;
+  
+  .clearfix {
     content: "";
     clear: both;
     display: block;
+    border-bottom: 1px solid #ddd;
+    width: 630px;
+    padding-bottom: -10px;
   }
-  &__name {
-    float: left;
+  &-name {
+    float: left; 
   }
+  
   &__btn {
-    float: right;
+    float:right;
     display: inline-block;
     cursor: pointer;
+    font-size:14px;
     &--add {
       color: #38aef0;
     }
@@ -104,4 +120,22 @@ li {
       color: #f05050;
     }
   }
+}
+
+
+.chat-group-member{
+  margin-top:10px;
+  border-bottom: 1px solid #ddd;
+  padding-top:10px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+
+  &__name {
+  font-size:14px;
+  
+  }
+}
+
+.user-search-remove{
+  margin-top: -25px;
 }

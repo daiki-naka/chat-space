@@ -1,16 +1,16 @@
 $(function(){
   function buildHTML(message){
     var html = `<div class="upper-message__user-name">
-                  ${message.name}
+                  ${name}
                 </div>
                 <div class="upper-message__date">
-                  ${message.date}
+                  ${date}
                 </div>
                 <p class="lower-message__content">
-                  ${message.text}
+                  ${text}
                 </p>
                 <div class="lower-message">
-                  ${message.image}
+                  ${image}
                 </div>`
       return html;
   }
@@ -31,7 +31,8 @@ $(function(){
       var html = buildHTML(data);
       $('.message').append(html);
       var target = $('.message').last();
-      $('.message').animate({scrollTop:target.offset().top}, 500, 'swing');
+      var position = target.offset().top
+      $('.messages').animate({scrollTop:position}, 500 , 'swing');
       $('.form__submit')[0].reset();
     })
     .fail(function(){
