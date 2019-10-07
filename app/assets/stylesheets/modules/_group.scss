@@ -88,6 +88,9 @@ li {
   }
 }
 
+.edit_group{
+  margin-left:-40px;
+}
 .chat-group-user {
   line-height: 50px;
   font-size: 14px;
@@ -101,7 +104,7 @@ li {
     clear: both;
     display: block;
     border-bottom: 1px solid #ddd;
-    width: 630px;
+    width: 655px;
     padding-bottom: -10px;
   }
   &-name {
@@ -129,6 +132,7 @@ li {
   padding-top:10px;
   padding-bottom: 15px;
   margin-bottom: 15px;
+  font-size:14px;
 
   &__name {
   font-size:14px;
