@@ -1,7 +1,6 @@
 $(function(){
   
     function buildHTML(data){
-      console.log(data);
       var img = `${data.image !== null ? img = `<img class="lower-message__image" src="${data.image}">` : img = "" }`
       var content = `${data.text !== null ? content = `<p class="lower-message__text">${data.text}</p>` : content = ""}`
       var html = `<div class="message" data-message-id = "${data.id}">
@@ -49,7 +48,6 @@ $(function(){
 
     var reloadMessages = function() {
       last_message_id = $('.message:last').data('message-id');
-      // console.log(last_message_id);
       
       $.ajax ({
         url:"api/messages",
@@ -58,7 +56,6 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages){
-        console.log(messages);
         messages.forEach(function(message){
           var html = buildHTML(message);
           $('.messages').append(html);
@@ -66,7 +63,7 @@ $(function(){
         })
       })
       .fail(function(){
-        console.log('error');
+        alert('error');
       })
     }
       setInterval(reloadMessages, 5000);
