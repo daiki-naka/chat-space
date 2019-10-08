@@ -1,6 +1,6 @@
 $(function(){
 
-  $(document).on('turbolinks:load', function(){
+  
     
     var search_list = $(".chat-group-user")
     var delete_list = $(".chat-group-member-add")
@@ -71,4 +71,4 @@ $(function(){
         $(this).parent().remove();
       });
   });
-});
+

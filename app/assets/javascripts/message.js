@@ -1,43 +1,74 @@
 $(function(){
-  function buildHTML(message){
-    var html = `<div class="upper-message__user-name">
-                  ${name}
-                </div>
-                <div class="upper-message__date">
-                  ${date}
-                </div>
-                <p class="lower-message__content">
-                  ${text}
-                </p>
-                <div class="lower-message">
-                  ${image}
+  
+    function buildHTML(data){
+      console.log(data);
+      var img = `${data.image !== null ? img = `<img class="lower-message__image" src="${data.image}">` : img = "" }`
+      var content = `${data.text !== null ? content = `<p class="lower-message__text">${data.text}</p>` : content = ""}`
+      var html = `<div class="message" data-message-id = "${data.id}">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${data.name}
+                      </div>
+                      <div class="upper-message__date">
+                      ${data.date}
+                      </div>
+                    </div>
+                    <div class="lower-message">
+                      ${content}
+                      ${img}
+                    </div>
                 </div>`
       return html;
   }
-  $('#new_message').on('submit', function(e){
+  $('#new-message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
-    $('.form__submit').removeAttr('data-disable-with');
+    var url = $(this).attr('action');
+
     $.ajax({
+      
       url: url,
       type: "POST",
       data: formData,
-      datatype: 'json',
+      dataType: 'json',
       processData: false,
       contentType: false
     })
+
     .done(function(data){
       var html = buildHTML(data);
-      $('.message').append(html);
-      var target = $('.message').last();
-      var position = target.offset().top
-      $('.messages').animate({scrollTop:position}, 500 , 'swing');
-      $('.form__submit')[0].reset();
+      $('.messages').append(html);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      $('#new-message')[0].reset();
+      $(".form__submit").prop("disabled", false);
     })
     .fail(function(){
       alert('error');
-    })
-    return false;
-  })
+    });
+    });
+
+    var reloadMessages = function() {
+      last_message_id = $('.message:last').data('message-id');
+      // console.log(last_message_id);
+      
+      $.ajax ({
+        url:"api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages){
+        console.log(messages);
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+          $('.messages').append(html);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        })
+      })
+      .fail(function(){
+        console.log('error');
+      })
+    }
+      setInterval(reloadMessages, 5000);
 });
+
