@@ -1,7 +1,7 @@
 $(function(){
   
     function buildHTML(data){
-      var img = `${data.image !== null ? img = `<img class="lower-message__image" src="${data.image}">` : img = "" }`
+      var img = `${data.image !== null ? data.image = `<img class="lower-message__image" src="${data.image}">` : data.image = "" }`
       var content = `${data.text !== null ? content = `<p class="lower-message__text">${data.text}</p>` : content = ""}`
       var html = `<div class="message" data-message-id = "${data.id}">
                     <div class="upper-message">
