@@ -91,6 +91,12 @@ li {
 .edit_group{
   margin-left:-40px;
 }
+
+.new_group{
+  margin-left:-40px;
+}
+
+
 .chat-group-user {
   line-height: 50px;
   font-size: 14px;
@@ -107,6 +113,7 @@ li {
     width: 655px;
     padding-bottom: -10px;
   }
+
   &-name {
     float: left; 
   }
