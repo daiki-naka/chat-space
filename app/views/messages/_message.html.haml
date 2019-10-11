@@ -10,6 +10,3 @@
         = message.text
     - if message.image.url.present?
       = image_tag message.image.url, class: 'lower-message__image'
-    - if message.text.present? && message.image.url.present?
-      -# = image_tag message.image.url, class: 'lower-message__image' 
-    
