@@ -57,6 +57,7 @@ $(function(){
         dataType: 'json',
         data: {id: last_message_id}
       })
+      
       .done(function(messages){
         messages.forEach(function(message){
           var html = buildHTML(message);
